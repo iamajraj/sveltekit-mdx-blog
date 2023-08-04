@@ -4,8 +4,15 @@
 	export let data
 </script>
 
+<svelte:head>
+	<title>Categories | {data.category}</title>
+</svelte:head>
+
 <section>
-	<h2 class="category-title">Posts for #{data.slug}</h2>
+	<div class="category-title">
+		<h2>Posts for #{data.category}</h2>
+		<p>{data.posts.length} post found</p>
+	</div>
 
 	<ul class="posts">
 		{#each data.posts as post}
@@ -20,7 +27,13 @@
 
 <style>
 	.category-title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		padding-bottom: var(--size-7);
+	}
+	.category-title h2 {
+		padding-bottom: var(--size-3);
 	}
 	.posts {
 		display: grid;

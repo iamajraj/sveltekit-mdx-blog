@@ -5,14 +5,17 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="https://fav.farm/🔥" />
+		<link rel="alternate" type="application/atom+xml" href="/rss.xml" />
 		%sveltekit.head%
 		<script type="module">
-			const theme = localStorage.getItem('color-scheme')			
-			theme ? document.documentElement.setAttribute('color-scheme', theme) : localStorage.setItem('color-scheme', 'dark')
+			const theme = localStorage.getItem('color-scheme')
+			theme
+				? document.documentElement.setAttribute('color-scheme', theme)
+				: localStorage.setItem('color-scheme', 'dark')
 
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
 				console.log(event)
-				const newColorScheme = event.matches ? "dark" : 'light'
+				const newColorScheme = event.matches ? 'dark' : 'light'
 				localStorage.setItem('color-scheme', newColorScheme)
 				document.documentElement.setAttribute('color-scheme', newColorScheme)
 			})
