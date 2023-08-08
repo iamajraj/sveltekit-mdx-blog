@@ -8,6 +8,10 @@ categories:
 published: true
 ---
 
+<script>
+import Alert from './alert.svelte';
+  </script>
+
 ## Markdown
 
 hey friends 👋
@@ -17,3 +21,7 @@ function greet(name: string) {
 	console.log(`Hey ${name}! 👋`)
 }
 ```
+
+---
+
+<Alert/>
