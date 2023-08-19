@@ -1,9 +1,10 @@
 import type { Post } from '../../lib/types.js'
 import * as config from '../../lib/config'
+import type { RequestHandler } from './$types.js'
 
 export const prerender = true
 
-export async function GET({ fetch }) {
+export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('api/posts')
 	const posts: Post[] = await response.json()
 
